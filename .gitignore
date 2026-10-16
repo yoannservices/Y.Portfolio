@@ -1,0 +1,10 @@
+# Local secrets and runtime data
+**/.env
+**/.env.*
+**/node_modules/
+**/links.json
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/

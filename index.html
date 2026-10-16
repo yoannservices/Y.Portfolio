@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-cat="dev">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio de Yoann, lyceen passionne par l'informatique - projets web, mobile, Python, IA et modelisation 3D. Vision 2D & 3D." />
+  <meta name="description" content="Portfolio de Yoann : applications web, outils JavaScript, simulations interactives et projets Arduino." />
   <meta name="author" content="Yoann" />
-  <meta name="theme-color" content="#101826" />
+  <meta name="theme-color" content="#0f0f13" />
   <title>Yoann - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link rel="stylesheet" href="../../assets/yoann-thread.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/theme.css" />
+  <script src="assets/site.js" data-project="developpement/portfolio/index.html" defer></script>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body class="mode-3d">
+
+  <!-- 3D particles -->
   <canvas id="particles-canvas"></canvas>
 
   <nav class="navbar" id="navbar">
@@ -38,127 +41,161 @@
   </nav>
 
   <main>
+
+    <!-- ??????????? HOME / HERO ??????????? -->
     <section id="home">
       <div class="hero-3d">
         <div class="hero-3d-inner">
           <div class="hero-3d-content reveal">
-            <p class="hero-tag">Developpeur passionne - Portfolio 2026</p>
+            <p class="hero-tag">Développeur web — Portfolio 2026</p>
             <h1 class="title-3d">
               <span class="line">Yoann,</span>
-              <span class="line gradient-text">createur de projets</span>
-              <span class="line">numeriques.</span>
+              <span class="line gradient-text">créateur de projets</span>
+              <span class="line">numériques.</span>
             </h1>
-            <p class="hero-desc">Je concois des experiences web, mobiles et desktop - du concept au produit fini. Explorez mes realisations dans un univers interactif.</p>
+            <p class="hero-desc">Je conçois des applications web, des outils interactifs et des simulations. Découvrez une sélection de projets réalisés, avec leurs démos.</p>
             <div class="hero-actions">
               <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> Explorer</a>
               <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane"></i> Contact</a>
             </div>
             <div class="hero-stats-3d">
-              <div class="stat-3d"><strong>45+</strong><span>Projets</span></div>
-              <div class="stat-3d"><strong>6</strong><span>Domaines</span></div>
-              <div class="stat-3d"><strong>2+</strong><span>Ans d'exp.</span></div>
+              <div class="stat-3d"><strong>8</strong><span>Projets sélectionnés</span></div>
+              <div class="stat-3d"><strong>3</strong><span>Domaines</span></div>
+              <div class="stat-3d"><strong>HTML · CSS · JS</strong><span>Technologies principales</span></div>
             </div>
           </div>
           <div class="hero-visual reveal">
-            <canvas id="hero-3d-canvas"></canvas>
+            <canvas id="hero-3d-canvas" aria-label="Modélisation 3D interactive des compétences de Yoann" title="Glisser pour orienter la scène, molette pour zoomer"></canvas>
           </div>
         </div>
       </div>
 
     </section>
 
+    <!-- ??????????? ABOUT ??????????? -->
     <section id="about">
       <div class="container">
         <div class="section-head reveal">
-          <p class="kicker">A propos</p>
-          <h2>Un lyceen qui construit pour apprendre</h2>
+          <p class="kicker">À propos</p>
+          <h2>Des projets concrets, du web à la simulation</h2>
         </div>
         <div class="about-grid">
           <div class="about-card reveal tilt-card">
             <div class="about-icon"><i class="fas fa-laptop-code"></i></div>
-            <h3>Developpement</h3>
-            <p>Sites web interactifs, outils en ligne, interfaces dynamiques - JavaScript, HTML, CSS sont mes outils quotidiens.</p>
+            <h3>Applications web</h3>
+            <p>Outils et interfaces interactives réalisés avec JavaScript, HTML et CSS.</p>
           </div>
           <div class="about-card reveal tilt-card">
             <div class="about-icon"><i class="fas fa-mobile-screen"></i></div>
-            <h3>Mobile</h3>
-            <p>Application React Native complete avec navigation, gamification, notifications et persistance locale.</p>
+            <h3>APIs et données</h3>
+            <p>Intégration d'API, récupération de données et création de tableaux de bord dynamiques.</p>
           </div>
           <div class="about-card reveal tilt-card">
             <div class="about-icon"><i class="fas fa-robot"></i></div>
-            <h3>Intelligence Artificielle</h3>
-            <p>Classification d'image avec TensorFlow, controle gestuel avec MediaPipe - je plonge dans le deep learning.</p>
+            <h3>Simulations interactives</h3>
+            <p>Projets de conduite et de vol avec commandes, environnements et interfaces en temps réel.</p>
           </div>
           <div class="about-card reveal tilt-card">
             <div class="about-icon"><i class="fas fa-cubes"></i></div>
-            <h3>Modelisation 3D</h3>
-            <p>Sweet Home 3D, SketchUp, Studio 2.0 - conception d'espaces, de vehicules et de mecanismes techniques.</p>
+            <h3>Électronique</h3>
+            <p>Prototypes Arduino simulés avec capteurs, LEDs et servomoteurs.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ??????????? FEATURED ??????????? -->
     <section id="phare">
       <div class="container">
         <div class="section-head reveal">
           <p class="kicker">Projet phare</p>
-          <h2>Quest Life</h2>
-          <p class="section-sub">Le projet le plus complet du portfolio, celui qui montre le mieux ma maniere de concevoir une application utile et coherente.</p>
+          <h2>API Dashboard</h2>
+          <p class="section-sub">Un tableau de bord web qui rassemble des données provenant de plusieurs API dans une interface interactive.</p>
         </div>
         <article class="featured-card reveal">
           <div class="featured-copy">
-            <span class="pill">Application mobile</span>
-            <h3>Une application qui transforme les objectifs du quotidien en quetes a accomplir.</h3>
-            <p>Quest Life est une application mobile realisee avec React Native et Expo. Elle permet de gerer des quetes quotidiennes, des taches avec deadline, un systeme d'XP, des niveaux et des rappels.</p>
+            <span class="pill">Application web</span>
+            <h3>Des données utiles, réunies dans une interface claire.</h3>
+            <p>Le dashboard présente notamment la météo, les cours des cryptomonnaies, des informations réseau et des données de services en ligne.</p>
             <ul class="feature-list">
-              <li>Navigation par onglets avec une structure claire et agreable a utiliser.</li>
-              <li>Systeme de progression avec XP, niveau, streak et reinitialisation quotidienne.</li>
-              <li>Stockage local, tutoriel integre et notifications pour enrichir l'experience.</li>
+              <li>Requêtes asynchrones vers plusieurs API.</li>
+              <li>Affichage actualisé d'informations et de prévisions.</li>
+              <li>Composants organisés dans une interface responsive.</li>
             </ul>
             <div class="tech-tags">
-              <span class="tech-tag">React Native</span>
-              <span class="tech-tag">Expo</span>
-              <span class="tech-tag">AsyncStorage</span>
-              <span class="tech-tag">Notifications</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">API REST</span>
+              <span class="tech-tag">Chart.js</span>
+              <span class="tech-tag">CSS</span>
             </div>
+            <a class="featured-link" href="https://yoannservices.github.io/api-dashboard/" target="_blank" rel="noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Ouvrir le projet</a>
           </div>
           <div class="featured-side">
             <div class="score-card">
               <span class="score-label">Pourquoi ce choix</span>
-              <strong>Un projet utile, structure et credible</strong>
-              <p>Il montre de l'interface, de la logique produit, de la persistance de donnees et une vraie reflexion autour de l'usage.</p>
+              <strong>APIs, données et interface</strong>
+              <p>Ce projet met en pratique les requêtes web, la gestion de données et leur présentation dans une interface lisible.</p>
             </div>
             <div class="mini-grid">
-              <article><span>01</span><p>Mobile</p></article>
-              <article><span>02</span><p>Gamification</p></article>
-              <article><span>03</span><p>Donnees locales</p></article>
-              <article><span>04</span><p>UX claire</p></article>
+              <article><span>01</span><p>API REST</p></article>
+              <article><span>02</span><p>JavaScript</p></article>
+              <article><span>03</span><p>Données</p></article>
+              <article><span>04</span><p>Interface</p></article>
             </div>
           </div>
         </article>
+        <div class="featured-more reveal">
+          <article class="featured-mini">
+            <div class="featured-mini-icon"><i class="fas fa-microchip"></i></div>
+            <div>
+              <span class="score-label">Projet phare 02</span>
+              <h3>PC Builder Pro</h3>
+              <p>Un configurateur complet qui vérifie la compatibilité des composants, les budgets et les performances estimées.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">Logique métier</span>
+                <span class="tech-tag">Benchmarks</span>
+              </div>
+            </div>
+            <a class="featured-link" href="https://yoannservices.github.io/pc-builder/" target="_blank" rel="noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Ouvrir</a>
+          </article>
+          <article class="featured-mini">
+            <div class="featured-mini-icon"><i class="fas fa-gamepad"></i></div>
+            <div>
+              <span class="score-label">Projet phare 03</span>
+              <h3>Simulateur Avion</h3>
+              <p>Une simulation de vol interactive avec cockpit, météo, terrain et modèle de vol.</p>
+              <div class="tech-tags">
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">WebGL</span>
+                <span class="tech-tag">Simulation</span>
+              </div>
+            </div>
+            <a class="featured-link" href="https://yoannservices.github.io/simulateur-avion/" target="_blank" rel="noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Ouvrir</a>
+          </article>
+        </div>
       </div>
     </section>
 
+    <!-- ═══════════ PROJECTS ═══════════ -->
     <section id="projects">
       <div class="container">
         <div class="section-head reveal">
           <p class="kicker">Projets</p>
-          <h2>Selection et diversite reunies dans une seule vitrine</h2>
-          <p class="section-sub">Tous les projets les plus interessants pour donner une vue lisible, professionnelle et fidele de mon travail.</p>
+          <h2>Une sélection de projets réalisés</h2>
+          <p class="section-sub">Outils web, simulations interactives et électronique : chaque carte mène vers la démo en ligne et le code sur GitHub.</p>
         </div>
         <div class="filter-bar reveal">
           <button class="filter-btn active" data-filter="all">Tous</button>
           <button class="filter-btn" data-filter="web">Web</button>
-          <button class="filter-btn" data-filter="mobile">Mobile</button>
-          <button class="filter-btn" data-filter="python">Python / IA</button>
-          <button class="filter-btn" data-filter="3d">3D</button>
+          <button class="filter-btn" data-filter="simulation">Simulations</button>
           <button class="filter-btn" data-filter="arduino">Arduino</button>
-          <button class="filter-btn" data-filter="game">Jeux</button>
         </div>
         <div class="projects-grid" id="projects-grid"></div>
       </div>
     </section>
 
+    <!-- ??????????? SKILLS ??????????? -->
     <section id="competences">
       <div class="container">
         <div class="section-head reveal">
@@ -167,6 +204,7 @@
           <p class="section-sub">Ces competences viennent directement des projets presentes plus haut.</p>
         </div>
 
+        <!-- 3D: skill orbs -->
         <div class="skills-3d">
           <div class="skills-orbs-grid">
             <div class="skill-orb reveal tilt-card" data-level="92">
@@ -186,23 +224,23 @@
             </div>
             <div class="skill-orb reveal tilt-card" data-level="75">
               <div class="orb-ring"></div>
-              <span class="skill-icon"><i class="fab fa-react"></i></span>
-              <p>React Native</p>
+              <span class="skill-icon"><i class="fas fa-cloud-arrow-down"></i></span>
+              <p>API REST</p>
             </div>
             <div class="skill-orb reveal tilt-card" data-level="72">
               <div class="orb-ring"></div>
-              <span class="skill-icon"><i class="fab fa-python"></i></span>
-              <p>Python</p>
+              <span class="skill-icon"><i class="fab fa-react"></i></span>
+              <p>React</p>
             </div>
             <div class="skill-orb reveal tilt-card" data-level="65">
               <div class="orb-ring"></div>
-              <span class="skill-icon"><i class="fas fa-brain"></i></span>
-              <p>TensorFlow</p>
+              <span class="skill-icon"><i class="fas fa-cube"></i></span>
+              <p>WebGL</p>
             </div>
             <div class="skill-orb reveal tilt-card" data-level="80">
               <div class="orb-ring"></div>
-              <span class="skill-icon"><i class="fas fa-cube"></i></span>
-              <p>Modelisation 3D</p>
+              <span class="skill-icon"><i class="fas fa-microchip"></i></span>
+              <p>Arduino</p>
             </div>
             <div class="skill-orb reveal tilt-card" data-level="85">
               <div class="orb-ring"></div>
@@ -214,6 +252,7 @@
       </div>
     </section>
 
+    <!-- ??????????? CONTACT ??????????? -->
     <section id="contact">
       <div class="container">
         <div class="section-head reveal">
@@ -229,11 +268,11 @@
               <span>contact.yoann.service@gmail.com</span>
             </div>
           </a>
-          <a class="contact-card reveal tilt-card" href="https://github.com/DragonGameryt77" target="_blank" rel="noreferrer">
+          <a class="contact-card reveal tilt-card" href="https://github.com/yoannservices" target="_blank" rel="noreferrer">
             <div class="contact-icon"><i class="fab fa-github"></i></div>
             <div>
               <p class="contact-label">GitHub</p>
-              <span>DragonGameryt77</span>
+              <span>yoannservices</span>
             </div>
           </a>
           <a class="contact-card reveal tilt-card" href="https://discord.com" target="_blank" rel="noreferrer">
@@ -256,6 +295,7 @@
     </div>
   </footer>
 
+  <!-- Project Detail Modal -->
   <div id="project-modal" class="project-modal" onclick="if(event.target===this)closeProjectModal()">
     <div class="modal-content">
       <button class="modal-close" onclick="closeProjectModal()" aria-label="Fermer">&times;</button>
@@ -276,4 +316,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

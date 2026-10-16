@@ -1,85 +1,30 @@
 
 
-/* --- Liens locaux vers les démos (depuis developpement/portfolio/) --- */
-const DEMO_PATHS = {
-  "PC Build Planner": "../../outils/pc-builder/index.html",
-  "PokerLocal": "../../loisirs/poker-local/index.html",
-  "Game Tools Lab": "../../outils/game-tools-lab/index.html",
-  "QuickPlay": "../../loisirs/quick-play/index.html",
-  "Unit Converter": "../../outils/unit-converter/index.html",
-  "API Dashboard": "../../developpement/api-dashboard/index.html",
-  "DevDash": "../../developpement/vscode-dashboard/index.html",
-  "Music Player": "../../loisirs/music-player/index.html",
-  "Pokedex Complet": "../../loisirs/pokedex/index.html",
-  "URL Shortener": "../../developpement/url-shortener/public/index.html",
-  "Sport Coach": "../../outils/sport-coach/index.html",
-  "OSINT Finder": "../../outils/osint/index.html",
-  "Palette Generator": "../../creatif/palette-generator/index.html",
-  "Tableau Periodique": "../../education/tableau-periodique/index.html",
-  "Agenda Semaine A/B": "../../outils/agenda/index.html",
-  "Generateur de CV": "../../outils/generateur-cv/index.html",
-  "CSS Animator": "../../outils/css-animator/index.html",
-  "Font Pairing": "../../creatif/font-pairing/index.html",
-  "Speedometer Sim": "../../loisirs/speedometer/index.html",
-  "Tier List Maker": "../../loisirs/tier-list/index.html",
-  "Raitatsu": "../../loisirs/raitatsu/index.html",
-  "Programme Fitness": "../../loisirs/programme-fitness/index.html",
-  "Habit Tracker": "../../outils/habit-tracker/index.html",
-  "IA Directory": "../../outils/ai-directory/index.html",
-  "Comparateur de Prix": "../../outils/comparateur-prix/index.html",
-  "PC Inventory": "../../outils/pc-inventory/index.html",
-  "CardDeck Pokémon": "../../loisirs/pokemon/index.html"
-};
-
-function projectLinks(p) {
-  const links = [...(p.links || [])];
-  const demo = DEMO_PATHS[p.title];
-  if (demo && !links.some((l) => l.url === demo)) {
-    links.unshift({ label: "Ouvrir le projet", url: demo, icon: "fas fa-play" });
-  }
-  return links;
-}
-
 /* --- Project data --- */
+/* Chaque projet a son dépôt GitHub (code) et sa démo GitHub Pages */
+const GH_USER = 'yoannservices';
+const repoLinks = repo => [
+  { label:"Démo", url:`https://${GH_USER}.github.io/${repo}/`, icon:"fas fa-arrow-up-right-from-square" },
+  { label:"Code", url:`https://github.com/${GH_USER}/${repo}`, icon:"fab fa-github" },
+];
+
 const PROJECTS = [
-  { title:"PC Build Planner", desc:"Configurateur de PC avec selection des composants, compatibilite globale, filtres par marque et estimation des performances en jeu.", badge:"Web outil", icon:"fas fa-microchip", category:"web", tags:["JavaScript","Calculs","Logique metier"] },
-  { title:"PokerLocal", desc:"Table de Texas Hold'em locale avec bots, journal de partie et gestion complete des tours d'action.", badge:"Jeu web", icon:"fas fa-chess", category:"game", tags:["JavaScript","Game logic","UI dynamique"] },
-  { title:"Game Tools Lab", desc:"Suite d'outils pour joueurs avec tests CPS, APM, FPS, peripheriques et calculateurs specialises.", badge:"Web multi-outils", icon:"fas fa-sliders", category:"web", tags:["JavaScript","Filtres","UI modulaire"] },
-  { title:"QuickPlay", desc:"Hub de mini-jeux varies avec plusieurs experiences arcade et puzzle dans une seule interface.", badge:"Hub de jeux", icon:"fas fa-gamepad", category:"game", tags:["Mini-games","Progression","Front interactif"] },
-  { title:"Unit Converter", desc:"Convertisseur universel avec 8 categories (longueur, masse, temperature, volume, vitesse, donnees, temps, surface) et historique.", badge:"Web outil", icon:"fas fa-ruler-combined", category:"web", tags:["JavaScript","Calculs","LocalStorage"] },
-  { title:"API Dashboard", desc:"Tableau de bord temps reel avec meteo via Open-Meteo, cours crypto, informations IP, horloge et previsions 7 jours.", badge:"Dashboard", icon:"fas fa-satellite-dish", category:"web", tags:["APIs REST","Chart.js","Fetch async"] },
-  { title:"DevDash", desc:"Dashboard developpeur style VS Code avec Pomodoro timer, gestionnaire de taches, notes rapides et raccourcis personnalisables.", badge:"Productivite", icon:"fas fa-code", category:"web", tags:["JavaScript","LocalStorage","UI VS Code"] },
-  { title:"Music Player", desc:"Lecteur audio local avec import drag & drop, playlist, favoris, visualisation frequences via Web Audio API.", badge:"App web", icon:"fas fa-music", category:"web", tags:["Web Audio API","Canvas","JavaScript"] },
-  { title:"Pokedex Complet", desc:"Pokedex interactif de 1025 Pokemon avec filtres par type et generation, tri par stats et chaine d'evolution.", badge:"App web", icon:"fas fa-dragon", category:"web", tags:["PokeAPI","Fetch","UI dynamique"] },
-  { title:"Conjugator", desc:"Analyseur de verbes francais permettant d'identifier mode, temps et personne a partir d'une forme conjuguee.", badge:"Analyse", icon:"fas fa-language", category:"web", tags:["JavaScript","JSON","Recherche"], links:[{label:"Demo web", url:"https://dragongameryt77.github.io/conjugator/", icon:"fas fa-globe"}] },
-  { title:"Lieux Proches", desc:"Projet web consacre a la decouverte de lieux proches, avec presentation claire et navigation simple.", badge:"Web local", icon:"fas fa-map-location-dot", category:"web", tags:["HTML","CSS","JavaScript"], links:[{label:"Demo web", url:"https://dragongameryt77.github.io/LieuxProche/", icon:"fas fa-globe"}] },
-  { title:"Tufting", desc:"Site vitrine autour du tufting, oriente mise en page, presentation et parcours visuel.", badge:"Site vitrine", icon:"fas fa-rug", category:"web", tags:["Responsive","UI vitrine","HTML / CSS / JS"], links:[{label:"Demo web", url:"https://dragongameryt77.github.io/tufting/", icon:"fas fa-globe"}] },
-  { title:"Image Recognition AI", desc:"Projet Python de classification d'image avec TensorFlow et MobileNetV2 pour decouvrir le machine learning applique.", badge:"IA", icon:"fas fa-brain", category:"python", tags:["Python","TensorFlow","Computer Vision"], links:[{label:"GitHub", url:"https://github.com/slayzbs/image-recognition-AI", icon:"fab fa-github"}] },
-  { title:"Studio 2.0", desc:"Serie de modeles autour des transports, de la mecanique et de la construction d'objets techniques.", badge:"3D", icon:"fas fa-cube", category:"3d", tags:["Modelisation 3D","Conception","Volumes"] },
-  { title:"Sweet Home 3D", desc:"Travaux de maisons et d'espaces interieurs avec reflexion sur l'amenagement, le volume et la composition.", badge:"3D habitat", icon:"fas fa-house", category:"3d", tags:["Sweet Home 3D","Architecture","Amenagement"] },
-  { title:"Maison Montpellier - SketchUp", desc:"Projet SketchUp centre sur la structure d'un espace habitable et la lecture des volumes architecturaux.", badge:"3D architecture", icon:"fas fa-compass-drafting", category:"3d", tags:["SketchUp","3D","Architecture"] },
-  { title:"URL Shortener", desc:"Raccourcisseur d'URL full-stack avec dashboard analytique protege, QR Codes, tracking des clics (geo, navigateur, OS) et graphiques Chart.js.", badge:"Full-stack", icon:"fas fa-link", category:"web", tags:["Node.js","Express","Chart.js"] },
-  { title:"Sport Coach", desc:"Coach sportif par webcam utilisant MediaPipe Pose pour detecter les mouvements, compter les repetitions et suivre la progression.", badge:"App webcam", icon:"fas fa-dumbbell", category:"web", tags:["MediaPipe","Canvas","Computer Vision"] },
-  { title:"OSINT Finder", desc:"Plateforme OSINT avec backend Node.js pour centraliser des recherches multi-sources (profils, traces publiques et outils GitHub) depuis une interface unique.", badge:"Full-stack", icon:"fas fa-user-secret", category:"web", tags:["Node.js","Express","APIs"] },
-  { title:"QuestLife", desc:"Application mobile RPG de vie quotidienne transformant les habitudes en quetes, avec systeme d'XP, niveaux et recompenses. En cours de developpement.", badge:"Mobile \u2022 En dev", icon:"fas fa-scroll", category:"mobile", tags:["React Native","Expo","Gamification"] },
-  { title:"Radar de proximite", desc:"Circuit Arduino Tinkercad avec 5 capteurs ultrasoniques HC-SR04, 4 buzzers et 3 LEDs pour detecter des obstacles a plusieurs points et signaler la distance par son et lumiere.", badge:"Electronique", icon:"fas fa-satellite-dish", category:"arduino", tags:["Arduino","Tinkercad","Capteurs ultrasoniques"], links:[{label:"Tinkercad", url:"https://www.tinkercad.com/things/cdZFdnbTa4a-radar-de-recul", icon:"fas fa-microchip"}] },
-  { title:"Suiveur de lumiere", desc:"Circuit Arduino Tinkercad avec un servomoteur oriente automatiquement vers la source lumineuse la plus forte grace a 2 photoresistances (LDR).", badge:"Electronique", icon:"fas fa-sun", category:"arduino", tags:["Arduino","Tinkercad","Servo / LDR"], links:[{label:"Tinkercad", url:"https://www.tinkercad.com/things/5ecQEKIR8Wr-suiveur-solaire-", icon:"fas fa-microchip"}] },
-  { title:"Palette Generator", desc:"Generateur de palettes de couleurs harmonieuses avec 7 modes (analogique, complementaire, triadique, monochromatique…), export CSS, Tailwind et PNG, sauvegarde locale.", badge:"Web creatif", icon:"fas fa-palette", category:"web", tags:["JavaScript","Couleurs","Export multi-format"] },
-  { title:"Tableau Periodique", desc:"Tableau periodique interactif des 118 elements avec 3 modes de coloration, recherche, filtres par categorie et fiches detaillees de chaque element.", badge:"Education", icon:"fas fa-atom", category:"web", tags:["JavaScript","Chimie","Data visualization"] },
-  { title:"Revision Unifiee (College + Bac)", desc:"Plateforme unique de revision regroupant college, brevet et bac avec fiches, quiz et flashcards sur une seule interface.", badge:"Education", icon:"fas fa-book-open-reader", category:"web", tags:["JavaScript","Education","Quiz / Flashcards"], links:[{label:"Demo web", url:"../../education/revision/index.html", icon:"fas fa-globe"}] },
-  { title:"Agenda Semaine A/B", desc:"Agenda scolaire interactif avec alternance Semaine A/B, vue claire des cours et navigation rapide pour organiser le planning hebdomadaire.", badge:"Web outil", icon:"fas fa-calendar-week", category:"web", tags:["JavaScript","Organisation","UI utile"] },
-  { title:"Generateur de CV", desc:"Generateur de CV avec formulaire live, previsualisation immediate et export PDF pour produire un document propre et professionnel rapidement.", badge:"Web outil", icon:"fas fa-file-lines", category:"web", tags:["JavaScript","PDF","Formulaires"] },
-  { title:"Habit Tracker", desc:"Suivi d'habitudes quotidiennes avec graphiques Chart.js, streaks, vue mensuelle et persistance locale.", badge:"Web outil", icon:"fas fa-check-double", category:"web", tags:["React","Chart.js","LocalStorage"] },
-  { title:"IA Directory", desc:"Annuaire des outils et services d'intelligence artificielle avec recherche, categories et fiches detaillees.", badge:"Web outil", icon:"fas fa-robot", category:"web", tags:["JavaScript","Annuaire","UI"] },
-  { title:"Comparateur de Prix", desc:"Comparaison de prix multi-sources avec filtres et mise en avant des meilleures offres.", badge:"Web outil", icon:"fas fa-tags", category:"web", tags:["JavaScript","Comparaison","Data"] },
-  { title:"PC Inventory", desc:"Inventaire d'ordinateurs avec modeles de marques, configurations personnalisees et export.", badge:"Web outil", icon:"fas fa-computer", category:"web", tags:["JavaScript","Inventaire","UI"] },
-  { title:"CardDeck Pokémon", desc:"Gestionnaire de collection de cartes Pokemon avec API, filtres et suivi de la collection.", badge:"App web", icon:"fas fa-layer-group", category:"web", tags:["PokeAPI","JavaScript","Collection"] },
-  { title:"CSS Animator", desc:"Editeur visuel de @keyframes avec prereglages, previsualisation en temps reel, courbes d'acceleration et export CSS propre en un clic.", badge:"Web creatif", icon:"fas fa-wand-magic-sparkles", category:"web", tags:["JavaScript","CSS","Animations"] },
-  { title:"Font Pairing", desc:"Outil de combinaisons typographiques avec 40+ polices Google Fonts, previsualisation live sur texte personnalise et export CSS.", badge:"Web creatif", icon:"fas fa-font", category:"web", tags:["JavaScript","Typography","Google Fonts"] },
-  { title:"Speedometer Sim", desc:"Simulateur de compteur de vitesse pour 10 marques automobiles avec physique reelle, RPM, rapports de vitesse, sons moteur et animations fluides.", badge:"Simulation", icon:"fas fa-gauge-high", category:"web", tags:["JavaScript","Physics","Canvas"] },
-  { title:"Tier List Maker", desc:"Classement drag-and-drop avec niveaux S/A/B/C/D/F, import d'images personnalisees, renommage des tiers et export PNG via canvas.", badge:"Web interactif", icon:"fas fa-list-ol", category:"web", tags:["JavaScript","Drag & Drop","Canvas"] },
-  { title:"Raitatsu", desc:"Jeu narratif a choix multiples avec univers draconique, arbre de decisions, ambiance immersive et plusieurs fins possibles.", badge:"Jeu narratif", icon:"fas fa-dragon", category:"game", tags:["JavaScript","Storytelling","UI immersive"] },
-  { title:"Programme Fitness", desc:"Application de programme de prise de masse 6j/7 en calisthenics : 6 jours d'entrainement, plan nutritionnel 3200 kcal/j et conseils de progression — tout en vanilla JS.", badge:"App sante", icon:"fas fa-dumbbell", category:"web", tags:["JavaScript","UI dynamique","Sante"] }
+  { title:"PC Builder Pro", desc:"Configurateur de PC avec sélection de composants, vérification de compatibilité et estimation des performances.", badge:"Outil web", icon:"fas fa-microchip", category:"web", tags:["JavaScript","Logique métier","Interface"], links:repoLinks("pc-builder") },
+  { title:"API Dashboard", desc:"Tableau de bord réunissant des données en temps réel (météo, crypto, adresse IP, NASA et ISS).", badge:"Dashboard", icon:"fas fa-satellite-dish", category:"web", tags:["API REST","JavaScript","Données"], links:repoLinks("api-dashboard") },
+  { title:"Conjugator", desc:"Analyseur de formes verbales françaises : retrouve le mode, le temps et la personne d'un verbe conjugué.", badge:"Outil web", icon:"fas fa-language", category:"web", tags:["JavaScript","JSON","Recherche"], links:repoLinks("conjugator") },
+  { title:"Game Tools Lab", desc:"Suite d'outils et de calculateurs pour tester des performances et périphériques de jeu.", badge:"Suite web", icon:"fas fa-sliders", category:"web", tags:["JavaScript","Outils interactifs","UI modulaire"], links:repoLinks("game-tools-lab") },
+  { title:"Habit Tracker", desc:"Application de suivi d'habitudes avec statistiques, séries et vue mensuelle.", badge:"Application web", icon:"fas fa-chart-line", category:"web", tags:["React","JavaScript","Visualisation"], links:repoLinks("habit-tracker") },
+  { title:"CSS Animator", desc:"Éditeur visuel d'animations CSS avec aperçu en direct et export de code.", badge:"Outil web", icon:"fas fa-wand-magic-sparkles", category:"web", tags:["JavaScript","CSS","Animations"], links:repoLinks("css-animator") },
+  { title:"Générateur de CV", desc:"Formulaire avec aperçu en direct et export PDF du CV.", badge:"Outil web", icon:"fas fa-file-lines", category:"web", tags:["JavaScript","Formulaires","PDF"], links:repoLinks("generateur-cv") },
+  { title:"Tableau Périodique", desc:"Les 118 éléments chimiques dans un tableau interactif avec fiches détaillées.", badge:"Éducation", icon:"fas fa-flask", category:"web", tags:["JavaScript","Données","Interface"], links:repoLinks("tableau-periodique") },
+  { title:"Simulateur Avion", desc:"Simulateur de vol avec pistes, relief, météo et modèle de vol interactif (F-35B, PV-40 à aile basculante).", badge:"Simulation 3D", icon:"fas fa-plane", category:"simulation", tags:["JavaScript","Three.js","Physique de vol"], links:repoLinks("simulateur-avion") },
+  { title:"Simulateur Moto", desc:"Moto sur une route de col, avec inclinaison, rapports et physique de conduite.", badge:"Simulation 3D", icon:"fas fa-motorcycle", category:"simulation", tags:["JavaScript","Three.js","Simulation"], links:repoLinks("simulateur-moto") },
+  { title:"Drift King", desc:"Drift en voiture sur une route de montagne, avec score et glisse contrôlée.", badge:"Simulation 3D", icon:"fas fa-car-side", category:"simulation", tags:["JavaScript","Three.js","Physique"], links:repoLinks("drift-king") },
+  { title:"Banc d'essai moteur", desc:"Banc d'essai moteur avec boîte de vitesses, pédales et sons moteur.", badge:"Simulation", icon:"fas fa-gauge-high", category:"simulation", tags:["JavaScript","Web Audio","Simulation"], links:repoLinks("banc-essai-moteur") },
+  { title:"Kukirin", desc:"Simulation de trottinette électrique avec livraisons, quêtes et garage.", badge:"Simulation 3D", icon:"fas fa-bicycle", category:"simulation", tags:["JavaScript","Three.js","Systèmes de jeu"], links:repoLinks("kukirin") },
+  { title:"Trottinette Freestyle", desc:"Skatepark 3D : whips, barspins, flips et grinds avec système de combos.", badge:"Simulation 3D", icon:"fas fa-person-skating", category:"simulation", tags:["JavaScript","Three.js","Gameplay"], links:repoLinks("trottinette-freestyle") },
+  { title:"QuickPlay", desc:"15 mini-jeux arcade dans le navigateur : 2048, snake, tower defense, blackjack…", badge:"Jeux", icon:"fas fa-gamepad", category:"simulation", tags:["JavaScript","Canvas","Jeux"], links:repoLinks("quick-play") },
+  { title:"Radar de proximité", desc:"Circuit Arduino simulé avec capteurs ultrasoniques, avertisseurs sonores et LEDs.", badge:"Électronique", icon:"fas fa-satellite-dish", category:"arduino", tags:["Arduino","Tinkercad","Capteurs"], links:[{label:"Voir sur Tinkercad", url:"https://www.tinkercad.com/things/cdZFdnbTa4a-radar-de-recul", icon:"fas fa-microchip"}] },
 ];
 
 /* --- State --- */
@@ -102,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTilt();
   initCardGlow();
   initTimeline();
+  initOrDestroyHero3D('3d');
 });
 
 
@@ -177,7 +123,7 @@ function renderProjects(filter) {
       <div class="project-tags tech-tags">
         ${p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
       </div>
-      ${projectLinks(p).length ? `<div class="project-links">${projectLinks(p).map(l => `<a class="btn-outline-minimal" href="${l.url}" ${l.url.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''} onclick="event.stopPropagation()"><i class="${l.icon}"></i> ${l.label}</a>`).join('')}</div>` : ''}
+      ${p.links ? `<div class="project-links">${p.links.map(l => `<a class="btn-outline-minimal" href="${l.url}" target="_blank" rel="noreferrer" onclick="event.stopPropagation()"><i class="${l.icon}"></i> ${l.label}</a>`).join('')}</div>` : ''}
     </article>
   `).join('');
 
@@ -320,21 +266,13 @@ function initCardGlow() {
 
 /* ------------- PROJECT MODAL ------------- */
 const PROJECT_DETAILS = {
-  "PC Build Planner": "Configurateur complet avec base de donnees de 35+ CPU, 40+ GPU, cartes meres, RAM, stockage, refroidissement, alimentations et boitiers. Include profiles gaming/streaming/creation, estimation FPS par resolution et verification de compatibilite.",
-  "PokerLocal": "Table de Texas Hold'em locale avec bots IA, journal de partie detaille, gestion du pot, blinds, all-in, et affichage des mains gagnantes.",
-  "Game Tools Lab": "19 outils de gaming : CPS, APM, reaction, scroll speed, micro test, FPS benchmark, calcul eDPI, sensibilite cross-game, PPI, et plus.",
-  "QuickPlay": "Hub de 15 mini-jeux : reaction, clicker, memory, nombre mystere, typing, aim, anagram, snake, 2048, demineur, blackjack, dino runner, dodgezone, hunterzone et tower defense spatial.",
-  "Unit Converter": "8 categories de conversion avec historique localStorage : longueur, masse, temperature, volume, vitesse, donnees, temps, surface.",
-  "API Dashboard": "Dashboard temps reel avec widgets meteo (Open-Meteo), crypto (CoinGecko), IP (ipapi.co), horloge, citations et previsions 7 jours (Chart.js).",
-  "QuestLife": "Application RPG mobile en React Native / Expo. Systeme de quetes quotidiennes, XP, niveaux, recompenses et streaks pour gamifier la vie quotidienne.",
-  "Sport Coach": "Detection de pose par webcam via MediaPipe Pose. Comptage automatique des repetitions, tracking des angles articulaires, historique des series et records personnels.",
-  "URL Shortener": "Full-stack Node.js/Express avec dashboard analytique, QR codes, tracking geo/navigateur/OS, graphiques Chart.js et protection par token admin.",
-  "OSINT Finder": "Plateforme full-stack avec backend Node.js pour regrouper des recherches OSINT et des outils GitHub dans un tableau de bord unique.",
-  "Revision Unifiee (College + Bac)": "Une seule page de revision pour tout le parcours college + bac, avec navigation par niveau, matieres, quiz et flashcards.",
-  "Agenda Semaine A/B": "Agenda web pense pour le rythme scolaire, avec alternance A/B, consultation rapide des jours et meilleure lisibilite du planning.",
-  "Routine Planner": "Planification journaliere intelligente avec import iCal, activites fixes, routines matin/soir et visualisation hebdomadaire.",
-  "Generateur de CV": "Application orientee productivite permettant de remplir un profil puis d'exporter un CV en PDF avec une mise en forme propre.",
-  "Revision Bac Premiere": "Application educative historique remplacee par la version unifiee college + bac."
+  "PC Builder Pro": "Configurateur interactif de composants PC avec vérification de compatibilité et estimation des performances.",
+  "API Dashboard": "Tableau de bord connecté à plusieurs sources de données web et présentant des informations actualisées.",
+  "Habit Tracker": "Suivi d'habitudes avec historique, séries et visualisations de progression.",
+  "Game Tools Lab": "Collection modulaire de tests et calculateurs dédiés aux jeux et aux périphériques.",
+  "Simulateur Avion": "Projet de simulation avec vue cockpit, météo, terrain, commandes de vol et effets visuels.",
+  "Kukirin": "Simulation interactive avec déplacements, téléphone en jeu, livraisons, missions et garage.",
+  "CSS Animator": "Éditeur visuel d'animations CSS avec prévisualisation en direct et export du code."
 };
 
 function openProjectModal(index) {
@@ -346,7 +284,7 @@ function openProjectModal(index) {
   document.getElementById('modal-title').textContent = p.title;
   document.getElementById('modal-desc').textContent = p.desc;
   document.getElementById('modal-tags').innerHTML = p.tags.map(t => `<span class="tech-tag">${t}</span>`).join('');
-  document.getElementById('modal-links').innerHTML = projectLinks(p).map(l => `<a class="btn-outline-minimal" href="${l.url}" ${l.url.startsWith('http') ? 'target="_blank" rel="noreferrer"' : ''}><i class="${l.icon}"></i> ${l.label}</a>`).join('');
+  document.getElementById('modal-links').innerHTML = p.links ? p.links.map(l => `<a class="btn-outline-minimal" href="${l.url}" target="_blank" rel="noreferrer"><i class="${l.icon}"></i> ${l.label}</a>`).join('') : '';
   const detail = PROJECT_DETAILS[p.title];
   document.getElementById('modal-details').innerHTML = detail ? `<strong>Details du projet :</strong><br>${detail}` : `<em>Categorie : ${p.category}</em>`;
   modal.classList.add('open');
@@ -397,16 +335,24 @@ function initHero3D() {
   const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
   camera.position.set(0, 0, 6);
 
-  // Mouse tracking
-  const mouse = { x: 0, y: 0, tx: 0, ty: 0 };
+  // Pointer interaction keeps the scene rotating even without input.
+  const interaction = {
+    dragging: false,
+    lastX: 0,
+    lastY: 0,
+    rotationX: 0,
+    rotationY: 0,
+    velocityX: 0,
+    velocityY: 0
+  };
 
   // Materials
-  const matPurple = new THREE.MeshStandardMaterial({ color: 0x6c5ce7, roughness: 0.3, metalness: 0.7 });
+  const matPurple = new THREE.MeshStandardMaterial({ color: 0xa855f7, roughness: 0.3, metalness: 0.7 });
   const matCyan = new THREE.MeshStandardMaterial({ color: 0x00cec9, roughness: 0.3, metalness: 0.7 });
   const matWire1 = new THREE.MeshStandardMaterial({ color: 0xa29bfe, wireframe: true, transparent: true, opacity: 0.5 });
   const matWire2 = new THREE.MeshStandardMaterial({ color: 0x00cec9, wireframe: true, transparent: true, opacity: 0.4 });
   const matGlass = new THREE.MeshPhysicalMaterial({
-    color: 0x6c5ce7, roughness: 0.05, metalness: 0.1,
+    color: 0xa855f7, roughness: 0.05, metalness: 0.1,
     transmission: 0.9, thickness: 1.5, transparent: true, opacity: 0.6
   });
 
@@ -481,6 +427,45 @@ function initHero3D() {
   group.add(ring3Mesh);
   shapes.push({ mesh: ring3Mesh, wire: null, basePos: [1.5, 0.8, 0.5], speed: 0.3, phase: 0.8, floatAmp: 0.15, rotSpeed: [0.01, 0, 0.008] });
 
+  // Skill labels orbit the core so the 3D object reflects the actual stack.
+  const skills = [
+    ['HTML', '#f97316'], ['CSS', '#38bdf8'], ['JavaScript', '#facc15'],
+    ['Python', '#4ade80'], ['React', '#22d3ee'], ['Node.js', '#a3e635'],
+    ['Three.js', '#c084fc'], ['Git', '#fb7185']
+  ];
+  const skillLabels = [];
+  function createSkillLabel(text, color) {
+    const labelCanvas = document.createElement('canvas');
+    labelCanvas.width = 512;
+    labelCanvas.height = 128;
+    const context = labelCanvas.getContext('2d');
+    context.fillStyle = 'rgba(10, 14, 28, .88)';
+    context.strokeStyle = color;
+    context.lineWidth = 5;
+    context.beginPath();
+    context.roundRect(6, 6, 500, 116, 28);
+    context.fill();
+    context.stroke();
+    context.fillStyle = '#f8fafc';
+    context.font = '700 48px Inter, sans-serif';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle';
+    context.fillText(text, 256, 64);
+    const texture = new THREE.CanvasTexture(labelCanvas);
+    texture.minFilter = THREE.LinearFilter;
+    const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false }));
+    sprite.scale.set(1.2, .3, 1);
+    return sprite;
+  }
+  skills.forEach(([text, color], index) => {
+    const angle = index / skills.length * Math.PI * 2;
+    const sprite = createSkillLabel(text, color);
+    const basePosition = [Math.cos(angle) * 2.15, Math.sin(angle * 1.7) * 1.1, Math.sin(angle) * .9];
+    sprite.position.set(...basePosition);
+    group.add(sprite);
+    skillLabels.push({ sprite, basePosition, phase: index * .8 });
+  });
+
   // Floating particles (small spheres)
   const particleGroup = new THREE.Group();
   const particleMat = new THREE.MeshBasicMaterial({ color: 0xa29bfe, transparent: true, opacity: 0.6 });
@@ -512,7 +497,7 @@ function initHero3D() {
   const ambientLight = new THREE.AmbientLight(0x404060, 0.6);
   scene.add(ambientLight);
 
-  const pointLight1 = new THREE.PointLight(0x6c5ce7, 2, 20);
+  const pointLight1 = new THREE.PointLight(0xa855f7, 2, 20);
   pointLight1.position.set(3, 3, 4);
   scene.add(pointLight1);
 
@@ -535,13 +520,41 @@ function initHero3D() {
   resize();
   window.addEventListener('resize', resize);
 
-  // Mouse handler (relative to canvas)
-  function onMouseMove(e) {
-    const rect = container.getBoundingClientRect();
-    mouse.tx = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
-    mouse.ty = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+  // Dragging rotates the scene in any direction; wheel controls the distance.
+  canvas.style.touchAction = 'none';
+  canvas.style.cursor = 'grab';
+  function onPointerDown(event) {
+    interaction.dragging = true;
+    interaction.lastX = event.clientX;
+    interaction.lastY = event.clientY;
+    canvas.style.cursor = 'grabbing';
+    canvas.setPointerCapture(event.pointerId);
   }
-  window.addEventListener('mousemove', onMouseMove);
+  function onPointerMove(event) {
+    if (!interaction.dragging) return;
+    const deltaX = event.clientX - interaction.lastX;
+    const deltaY = event.clientY - interaction.lastY;
+    interaction.lastX = event.clientX;
+    interaction.lastY = event.clientY;
+    interaction.velocityY = deltaX * .008;
+    interaction.velocityX = deltaY * .008;
+    interaction.rotationY += interaction.velocityY;
+    interaction.rotationX += interaction.velocityX;
+  }
+  function onPointerUp(event) {
+    interaction.dragging = false;
+    canvas.style.cursor = 'grab';
+    if (canvas.hasPointerCapture(event.pointerId)) canvas.releasePointerCapture(event.pointerId);
+  }
+  function onWheel(event) {
+    event.preventDefault();
+    camera.position.z = Math.max(4.2, Math.min(8, camera.position.z + event.deltaY * .004));
+  }
+  canvas.addEventListener('pointerdown', onPointerDown);
+  canvas.addEventListener('pointermove', onPointerMove);
+  canvas.addEventListener('pointerup', onPointerUp);
+  canvas.addEventListener('pointercancel', onPointerUp);
+  canvas.addEventListener('wheel', onWheel, { passive: false });
 
   // Animation
   let raf;
@@ -551,13 +564,17 @@ function initHero3D() {
     raf = requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
 
-    // Smooth mouse follow
-    mouse.x += (mouse.tx - mouse.x) * 0.05;
-    mouse.y += (mouse.ty - mouse.y) * 0.05;
-
-    // Rotate whole group gently based on mouse
-    group.rotation.y = mouse.x * 0.4;
-    group.rotation.x = -mouse.y * 0.3;
+    // Keep a slow idle rotation and preserve momentum after a drag.
+    if (!interaction.dragging) {
+      interaction.rotationY += .0025;
+      interaction.rotationY += interaction.velocityY;
+      interaction.rotationX += interaction.velocityX;
+      interaction.velocityX *= .94;
+      interaction.velocityY *= .94;
+    }
+    interaction.rotationX = Math.max(-1.35, Math.min(1.35, interaction.rotationX));
+    group.rotation.y = interaction.rotationY;
+    group.rotation.x = interaction.rotationX;
 
     // Animate each shape
     shapes.forEach(s => {
@@ -583,6 +600,9 @@ function initHero3D() {
       fp.mesh.position.y = fp.basePos[1] + Math.sin(t * fp.speed + fp.phase) * fp.amp;
       fp.mesh.position.x = fp.basePos[0] + Math.cos(t * fp.speed * 0.6 + fp.phase) * fp.amp * 0.7;
     });
+    skillLabels.forEach(label => {
+      label.sprite.position.y = label.basePosition[1] + Math.sin(t * .7 + label.phase) * .08;
+    });
     particleGroup.rotation.y = t * 0.05;
 
     // Light animation
@@ -597,7 +617,15 @@ function initHero3D() {
     destroy() {
       cancelAnimationFrame(raf);
       window.removeEventListener('resize', resize);
-      window.removeEventListener('mousemove', onMouseMove);
+      canvas.removeEventListener('pointerdown', onPointerDown);
+      canvas.removeEventListener('pointermove', onPointerMove);
+      canvas.removeEventListener('pointerup', onPointerUp);
+      canvas.removeEventListener('pointercancel', onPointerUp);
+      canvas.removeEventListener('wheel', onWheel);
+      skillLabels.forEach(label => {
+        label.sprite.material.map?.dispose();
+        label.sprite.material.dispose();
+      });
       renderer.dispose();
       hero3D = null;
     }
