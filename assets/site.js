@@ -40,6 +40,7 @@
     { cat: 'loisirs', path: 'loisirs/Kukirin.html', mini: true,         name: 'Kukirin',                desc: 'Trottinette, livraisons et quêtes' },
     { cat: 'loisirs', path: 'loisirs/trottinette-freestyle/', mini: true, name: 'Trottinette Freestyle', desc: 'Skatepark 3D : whips, barspins, flips et grinds' },
     { cat: 'loisirs', path: 'loisirs/simulateur-train/', mini: true, name: 'Simulateur Train',      desc: 'Conduite ferroviaire : signalisation, gares et procédures' },
+    { cat: 'loisirs', path: 'loisirs/simulateur-fpv/', mini: true, pos: 'tr', name: 'Simulateur FPV',  desc: 'Drone FPV acro : tunnels, bando, course et suivi de voitures en drift' },
     { cat: 'loisirs', path: 'loisirs/music-player/',        name: 'Music Player',           desc: 'Lecteur audio & playlists' },
     { cat: 'loisirs', path: 'loisirs/pokedex/',             name: 'Pokédex Complet',        desc: '1025 Pokémon' },
   ];
