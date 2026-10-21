@@ -25,7 +25,6 @@
     { cat: 'outils',  path: 'outils/game-tools-lab/',       name: 'Game Tools Lab',         desc: 'Suite multi-outils gaming' },
     { cat: 'outils',  path: 'outils/css-animator/',         name: 'CSS Animator',           desc: 'Éditeur visuel de @keyframes' },
     { cat: 'outils',  path: 'outils/habit-tracker/',        name: 'Habit Tracker',          desc: "Suivi d'habitudes, streaks & graphiques" },
-    { cat: 'outils',  path: 'outils/pieces-detachees-tel/', name: 'Pièces Détachées Tél.',  desc: 'Meilleurs sites de pièces par modèle' },
     { cat: 'dev',     path: 'developpement/portfolio/',     name: 'Portfolio',              desc: 'Portfolio interactif 2D / 3D' },
     { cat: 'dev',     path: 'developpement/api-dashboard/', name: 'API Dashboard',          desc: 'Météo, crypto, NASA, ISS en temps réel' },
     { cat: 'educ',    path: 'education/tableau-periodique/',name: 'Tableau Périodique',     desc: '118 éléments interactifs' },
