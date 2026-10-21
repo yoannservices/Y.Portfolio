@@ -37,10 +37,12 @@
     { cat: 'loisirs', path: 'loisirs/drift-king/', mini: true,      name: 'Drift King',             desc: 'Drift sur une route de montagne' },
     { cat: 'loisirs', path: 'loisirs/simulateur-avion/', mini: true, pos: 'tr',name: 'Simulateur Avion',       desc: 'F-35B et PV-40 à aile basculante, vol libre' },
     { cat: 'loisirs', path: 'loisirs/simulateur-moto/', mini: true, name: 'Simulateur Moto',        desc: 'Moto sur route de col' },
+    { cat: 'loisirs', path: 'loisirs/tesla-roadster/', mini: true, name: 'Tesla Roadster',  desc: 'Roadster 3D : murs, plafonds, vol, boost et tonneaux en ville' },
     { cat: 'loisirs', path: 'loisirs/kukirin/', mini: true,         name: 'Kukirin',                desc: 'Trottinette, livraisons et quêtes' },
     { cat: 'loisirs', path: 'loisirs/trottinette-freestyle/', mini: true, name: 'Trottinette Freestyle', desc: 'Skatepark 3D : whips, barspins, flips et grinds' },
     { cat: 'loisirs', path: 'loisirs/simulateur-train/', mini: true, name: 'Simulateur Train',      desc: 'Conduite ferroviaire : signalisation, gares et procédures' },
     { cat: 'loisirs', path: 'loisirs/simulateur-fpv/', mini: true, pos: 'tr', name: 'Simulateur FPV',  desc: 'Drone FPV acro : tunnels, bando, course et suivi de voitures en drift' },
+    { cat: 'loisirs', path: 'loisirs/sport-live/',          name: 'Sport Live',             desc: 'Scores en direct, compos, stats et simulation 3D' },
     { cat: 'loisirs', path: 'loisirs/music-player/',        name: 'Music Player',           desc: 'Lecteur audio & playlists' },
     { cat: 'loisirs', path: 'loisirs/pokedex/',             name: 'Pokédex Complet',        desc: '1025 Pokémon' },
   ];
